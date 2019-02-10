@@ -28,13 +28,13 @@ public class simpleTest {
     public void SearchSpace() {
         WebElement searchSpace = driver.findElement(By.xpath("//*[@id='user-addr__input']"));
         searchSpace.clear();
-        searchSpace.sendKeys("Кемерово, улица Сибиряков-Гвардейцев, 16");
+        searchSpace.sendKeys("Страна чудес, шахматный город, клетка е5");//enter a incorrect address
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         WebElement enterButton = driver.findElement(By.xpath("//*[@id='user-addr__form']/label[2]/a"));
         enterButton.click();
-        WebElement product = driver.findElement(By.xpath("//*[@id='vendor-list-app']/div/div[2]/div[6]/ul/li[1]/section/div[2]/section[1]/a/span"));
+        WebElement product = driver.findElement(By.xpath("//*[@id='user-addr__form']/label[1]/span[2]/span[3]"));
         String productName = product.getText();
-        Assert.assertEquals("Гигант-суши", productName);
+        Assert.assertEquals("Пожалуйста, уточните ваш адрес", productName);
 
     }
 }
