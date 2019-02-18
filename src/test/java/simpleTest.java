@@ -1,3 +1,4 @@
+import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -36,5 +37,11 @@ public class simpleTest {
         String productName = product.getText();
         Assert.assertEquals("Пожалуйста, уточните ваш адрес", productName);
 
+    }
+
+    @AfterClass
+
+    public static void tearDown(){
+        driver.quit();
     }
 }
